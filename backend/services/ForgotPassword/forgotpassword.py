@@ -44,7 +44,7 @@ def forgot_password():
         return jsonify(({"message":"Method not allowed"}),404)
 
 
-@forgotpassword_bp.route('/api/reset-password/', methods=['GET','POST'])
+@forgotpassword_bp.route('/api/reset-password', methods=['GET','POST'])
 @authentication
 def reset_password(user_id):
     bcrypt = Bcrypt(current_app)
@@ -64,7 +64,7 @@ def reset_password(user_id):
             #data.password = new_password
             #db.session.commit()
             session = session_factory()
-            sql_stmt = (update(User).where(User.UserName == user_id).values(Password=new_password))
+            sql_stmt = (update(User).where(User.UserId == user_id).values(Password=new_password))
             session.execute(sql_stmt)
             session.commit()
             session.close()

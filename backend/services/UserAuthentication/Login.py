@@ -62,7 +62,7 @@ def signin():
             # password = content["password"]
             if password:
                 session = session_factory()
-                sql_stmt = (select(User.Id, User.isadmin, User.password, User.loginType).where (User.username == username))
+                sql_stmt = (select(User.UserId, User.IsAdmin, User.Password, User.LoginType).where (User.UserName == username))
                 result = session.execute(sql_stmt).first()
                 session.close()
 
