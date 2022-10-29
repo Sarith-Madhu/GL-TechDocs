@@ -68,7 +68,7 @@ def signin():
 
                 if result:
             
-                    if result[2] == "google":
+                    if result[3] == "google":
                         data_sent = {"message":"User not Registered"} 
                         return make_response(jsonify(data_sent),401)
 
